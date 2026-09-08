@@ -700,6 +700,15 @@ BITCOINKERNEL_API const btck_Wtxid* btck_transaction_get_wtxid(
     const btck_Transaction* transaction) BITCOINKERNEL_ARG_NONNULL(1);
 
 /**
+ * @brief Check whether a transaction has witness data.
+ *
+ * @param[in] transaction Non-null.
+ * @return                1 if the transaction has witness data, 0 if not.
+ */
+BITCOINKERNEL_API int btck_transaction_has_witness(
+    const btck_Transaction* transaction) BITCOINKERNEL_ARG_NONNULL(1);
+
+/**
  * @brief Run context-free consensus validation on a btck_Transaction.
  *
  * Performs basic structural consensus checks (consensus/tx_check::CheckTransaction)

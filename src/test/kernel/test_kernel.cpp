@@ -406,6 +406,8 @@ BOOST_AUTO_TEST_CASE(btck_transaction_tests)
     const auto wtxid_2{tx2.Wtxid().ToBytes()};
     BOOST_CHECK(txid == wtxid);
     BOOST_CHECK(txid_2 != wtxid_2);
+    BOOST_CHECK(!tx.HasWitness());
+    BOOST_CHECK(tx2.HasWitness());
 
     auto invalid_data = hex_string_to_byte_vec("012300");
     BOOST_CHECK_THROW(Transaction{invalid_data}, std::runtime_error);
